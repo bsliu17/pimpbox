@@ -18,6 +18,9 @@ hostname $BOX_NAME
 # Install core components
 /vagrant/scripts/install_build_tools.sh
 
+# Install node
+/vagrant/scriptsgenerate_ssh_key.sh
+
 # Install core components
 /vagrant/scripts/install_zsh.sh
 
@@ -32,6 +35,8 @@ hostname $BOX_NAME
 
 # Install node
 /vagrant/scripts/install_nvm.sh
+
+
 
 # Done
 touch /etc/vagrant-provisioned
