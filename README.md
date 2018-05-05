@@ -1,4 +1,4 @@
-# node-vagrant
+# pimpbox
 
 ![zelda-nyan](http://i1.kym-cdn.com/photos/images/original/000/402/521/a01.png "something something")
 
