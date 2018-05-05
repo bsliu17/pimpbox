@@ -11,7 +11,7 @@ Vagrant.configure(2) do |config|
   # https://docs.vagrantup.com.
 
   config.vm.box = 'ubuntu/trusty64'
-
+  config.vm.ui = true
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
@@ -68,7 +68,7 @@ Vagrant.configure(2) do |config|
   # backing providers for Vagrant. These expose provider-specific options.
   config.vm.provider 'virtualbox' do |vb|
     # Customize the amount of memory on the VM:
-    vb.memory = '1024'
+    vb.memory = '2048'
     # Enable the creation of symlinks on the VirtualBox instance
     # see http://blog.liip.ch/archive/2012/07/25/vagrant-and-node-js-quick-tip.html
     vb.customize ['setextradata', :id, 'VBoxInternal2/SharedFoldersEnableSymlinksCreate/vagrant', '1']
