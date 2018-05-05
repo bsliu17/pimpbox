@@ -18,6 +18,9 @@ hostname $BOX_NAME
 # Install core components
 /vagrant/scripts/install_build_tools.sh
 
+# Install core components
+/vagrant/scripts/install_zsh.sh
+
 # Install MongoDB
 /vagrant/scripts/install_mongodb.sh
 
