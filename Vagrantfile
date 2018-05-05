@@ -10,8 +10,11 @@ Vagrant.configure(2) do |config|
   # For a complete reference, please see the online documentation at
   # https://docs.vagrantup.com.
 
-  config.vm.box = 'ubuntu/trusty64'
-  config.vm.ui = true
+  config.vm.box = "ubuntu/xenial64"
+  config.vm.hostname = "pimpbox"
+  # Forward X11 gui
+  config.ssh.forward_x11 = true
+  
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
@@ -58,7 +61,7 @@ Vagrant.configure(2) do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   
-  config.vm.synced_folder (ENV['PROJECT_DIR'] || ENV['PROJECT_DIR'] = '../Github'), '/home/ubuntu/Github'
+  config.vm.synced_folder (ENV['PROJECT_DIR'] || ENV['PROJECT_DIR'] = '../../01.codes'), '/home/ubuntu/01.codes'
 
   # Removes "stdin: is not a tty" annoyance as per
   # https://github.com/SocialGeeks/vagrant-openstack/commit/d3ea0695e64ea2e905a67c1b7e12d794a1a29b97
@@ -69,6 +72,12 @@ Vagrant.configure(2) do |config|
   config.vm.provider 'virtualbox' do |vb|
     # Customize the amount of memory on the VM:
     vb.memory = '2048'
+
+    # BL: Turn on ui, setup vram, turnon 3d acc
+    vb.gui = true
+    vb.customize ["modifyvm", :id, "--vram", 100]
+    vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
+
     # Enable the creation of symlinks on the VirtualBox instance
     # see http://blog.liip.ch/archive/2012/07/25/vagrant-and-node-js-quick-tip.html
     vb.customize ['setextradata', :id, 'VBoxInternal2/SharedFoldersEnableSymlinksCreate/vagrant', '1']

@@ -18,8 +18,11 @@ hostname $BOX_NAME
 # Install core components
 /vagrant/scripts/install_build_tools.sh
 
-# Install node
-/vagrant/scriptsgenerate_ssh_key.sh
+# Install GUI
+/vagrant/scripts/install_gui.sh
+
+# Install SSH
+/vagrant/scripts/generate_ssh_key.sh
 
 # Install core components
 /vagrant/scripts/install_zsh.sh
